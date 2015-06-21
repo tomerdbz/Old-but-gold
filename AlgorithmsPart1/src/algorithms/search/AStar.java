@@ -24,6 +24,8 @@ public class AStar extends CommonSearcher {
 	 */
 	@Override
 	public Solution search(Searchable s) {
+		if(s==null || s.getStartState()==null || s.getGoalState()==null)
+			return null;
 		addToOpenList(s.getStartState());
 		  HashSet<State> closedSet=new HashSet<State>();
 
@@ -71,7 +73,7 @@ public class AStar extends CommonSearcher {
 	 * @param state
 	 * @return the old path price
 	 */
-	public  double oldPathPrice(PriorityQueue<State> openList,State state)
+	private  double oldPathPrice(PriorityQueue<State> openList,State state)
 	{
 			if(openList.contains(state))
 			{

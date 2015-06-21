@@ -16,8 +16,14 @@ public class StateHeuristicComparator extends StateComparator implements Compara
 	public int compare(State state1, State state2) {
 		double state1val=state1.getCost();
 		double state2val=state2.getCost();
-		
-		return (int) (state1val+heuristic.hCalc(state1) - state2val - heuristic.hCalc(state2));
+		if(heuristic==null)
+			return (int) (state1val-state2val);
+		Double state1Est=heuristic.hCalc(state1);
+		Double state2Est=heuristic.hCalc(state2);
+		if(state1Est==null || state2Est==null)
+			return (int) (state1val-state2val);
+		else
+			return (int) (state1val+state1Est - state2val - state2Est);
 	}
 
 }

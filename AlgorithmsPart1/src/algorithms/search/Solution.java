@@ -14,6 +14,8 @@ public class Solution {
 		this.path=path;
 		this.pathCost=pathCost;
 	}
+	public Solution() {
+	}
 	public ArrayList<State> getPath() {
 		return path;
 	}
@@ -36,6 +38,16 @@ public class Solution {
 		}
 		str=str+"The Cost:"+this.pathCost+"\n";
 		return str;
+	}
+	@Override
+	public boolean equals(Object arg0) {
+		Solution sol2=(Solution) arg0;
+		if(this.pathCost!=sol2.pathCost)
+			return false;
+		for(State s: path)
+			if(!sol2.path.contains(s))
+				return false;
+		return true;
 	}
 	
 }

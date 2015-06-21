@@ -23,7 +23,7 @@ public class Demo {
 	{
 		MazeGenerator mg=new DFSMazeGenerator(); // my choice of algorithm
 		Maze m = mg.generateMaze(8,8,0,0,7,7);
-		m.print();
+		System.out.println(m);
 		Searchable ms=new MazeSearch(m,Movement.NONDIAGONAL,10,15);
 		Searcher choice=new BFS();//new MazeAirDistance(1));
 		Solution sol=choice.search(ms);

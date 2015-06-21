@@ -1,0 +1,7 @@
+algorithms.compression_algorithms
+algorithms.demo
+algorithms.mazeGenerators
+algorithms.search
+algorithms.tests
+ui.boot
+ui.view

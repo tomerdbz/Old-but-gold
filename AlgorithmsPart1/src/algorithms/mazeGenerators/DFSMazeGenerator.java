@@ -23,6 +23,7 @@ public class DFSMazeGenerator implements MazeGenerator {
 	 */
 	public Maze generateMaze(int rows, int cols,int rowSource,int colSource,int rowGoal ,int colGoal) 
 	{
+		
 		Maze maze = new Maze(rows, cols,rowSource,colSource,rowGoal ,colGoal);
 		Cell currCell = maze.getCell(0, 0);
 		currCell.setVisited(true);

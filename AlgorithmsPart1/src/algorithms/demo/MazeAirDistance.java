@@ -1,5 +1,8 @@
 package algorithms.demo; //consider creating a package for Heuristics
 
+import java.text.NumberFormat;
+import java.text.ParsePosition;
+
 import algorithms.search.Heuristic;
 import algorithms.search.State;
 
@@ -27,12 +30,23 @@ public class MazeAirDistance implements Heuristic {
 	{
 		String src=source.getState();
 		String[] srccoordinates=src.split(",");
+		if(srccoordinates.length< 2)
+			return 0.0; //Tried to fool Heuristic? won't help you
+		if(!isNumeric(srccoordinates[0]) || !isNumeric(srccoordinates[1]))
+			return 0.0; //Tried to fool Heuristic? won't help you
 		int srcrow=Integer.parseInt(srccoordinates[0]);
 		int srccol=Integer.parseInt(srccoordinates[1]);
 		int destrow=rowGoal;
 		int destcol=colGoal;
 		return Math.sqrt(Math.pow((double)(destrow-srcrow),2.0)+Math.pow((double)(destcol-srccol),2.0));
 	}
+	private static boolean isNumeric(String str)
+	  {
+	    NumberFormat formatter = NumberFormat.getInstance();
+	    ParsePosition pos = new ParsePosition(0);
+	    formatter.parse(str, pos);
+	    return str.length() == pos.getIndex();
+	  }
 	public double getMovementCost() {
 		return movementCost;
 	}

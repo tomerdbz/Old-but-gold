@@ -34,7 +34,8 @@ public class MazeSearch implements Searchable {
 	}
 	@Override
 	public State getStartState() {
-		
+		if(maze.getMatrix()==null) //matrix hasn't been initialized
+			return null;
 		return new State(maze.getCell(maze.getRowSource(), maze.getColSource()).toString(),0.0,null);
 	}
 

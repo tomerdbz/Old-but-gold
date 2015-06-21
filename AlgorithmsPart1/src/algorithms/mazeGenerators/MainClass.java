@@ -6,7 +6,7 @@ public class MainClass {
 		System.out.println("bamba");
 		MazeGenerator mg=new DFSMazeGenerator(); // my choice of algorithm
 		Maze m = mg.generateMaze(4,4,0,0,3,3);
-		m.print(); // displays the maze on the console 
+		System.out.println(m); // displays the maze on the console 
 
 	}
 

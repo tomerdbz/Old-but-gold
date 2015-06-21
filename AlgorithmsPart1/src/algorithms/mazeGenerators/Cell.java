@@ -64,6 +64,8 @@ public class Cell {
 		setRow(row);
 		setCol(col);
 	}
+	public Cell() {
+	}
 	public void print()
 	{
 		System.out.println("Cell "+ this.getRow()+","+this.getCol());

@@ -15,17 +15,27 @@ public class Maze {
 	private int colSource;
 	private int rowGoal;
 	private int colGoal;
+
 	public Maze(int rows, int cols, int rowSource,int colSource,int rowGoal,int colGoal) {
-		this.rows = rows;
-		this.cols = cols;
-		this.rowSource=rowSource;
-		this.colSource=colSource;
-		this.rowGoal=rowGoal;
-		this.colGoal=colGoal;
-		this.matrix = new Cell[rows][cols];
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < cols; j++) {
-				matrix[i][j] = new Cell(i, j);				
+		if(rows>0)
+			this.rows = rows;
+		if(cols>0)
+			this.cols = cols;
+		if(rowSource>=0 && rowSource < rows)
+			this.rowSource=rowSource;
+		if(colSource>=0 && colSource < cols)
+			this.colSource=colSource;
+		if(rowGoal>=0 && rowGoal < rows)
+			this.rowGoal=rowGoal;
+		if(colGoal>=0 && colGoal < cols)
+			this.colGoal=colGoal;
+		if(rows!=0 && cols!=0)
+		{
+			this.matrix = new Cell[rows][cols];
+			for (int i = 0; i < rows; i++) {
+				for (int j = 0; j < cols; j++) {
+					matrix[i][j] = new Cell(i, j);				
+				}
 			}
 		}
 	}
@@ -44,33 +54,38 @@ public class Maze {
 			return false;
 		return flag;
 	}
-	public void print() 
-	{
+	@Override
+	public String toString() {
+		StringBuilder str=new StringBuilder();
+		
 		for (int j = 0; j < cols; j++)
-			System.out.print("__");
-		System.out.println("_");
+			str.append("__");
+		str.append("_\n");
 		
 		for (int i = 0; i < rows; i++) {
-			System.out.print("|");
+			str.append("|");
 			for (int j = 0; j < cols; j++) {				
 				Cell cell = matrix[i][j];
 				if (cell.getHasBottomWall())
-					System.out.print("_");
+					str.append("_");
 				else
-					System.out.print(" ");
+					str.append(" ");
 				
 				if (cell.getHasRightWall())
-					System.out.print("|");
+					str.append("|");
 				else
-					System.out.print(" ");	
+					str.append(" ");	
 								
 			}
-			System.out.println();
+			str.append("\n");
 		}
+		return str.toString();
 	}
-	
 	public Cell getCell(int row, int col) {
-		return matrix[row][col];
+		if(row>=0 && row<=rows-1 && col>=0 && col<=cols-1)
+			return matrix[row][col];
+		else
+			return null;
 	}
 	
 	public boolean UnvisitedCellExists() {
@@ -182,5 +197,12 @@ public class Maze {
 	public void setColGoal(int colGoal) {
 		this.colGoal = colGoal;
 	}
+	public Cell[][] getMatrix() {
+		return matrix;
+	}
+	public void setMatrix(Cell[][] matrix) {
+		this.matrix = matrix;
+	}
+	
 	
 }

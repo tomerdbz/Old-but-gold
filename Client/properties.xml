@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_40" class="java.beans.XMLDecoder">
+ <object class="presenter.ClientProperties">
+  <void property="diagonalMovementCost">
+   <double>123.0</double>
+  </void>
+  <void property="mazeSolver">
+   <object class="java.lang.Enum" method="valueOf">
+    <class>presenter.ClientProperties$MazeSolver</class>
+    <string>BFS</string>
+   </object>
+  </void>
+  <void property="movementCost">
+   <double>12.0</double>
+  </void>
+  <void property="serverIP">
+   <string>localhost</string>
+  </void>
+  <void property="serverPort">
+   <int>7000</int>
+  </void>
+  <void property="ui">
+   <object class="java.lang.Enum" method="valueOf">
+    <class>presenter.ClientProperties$UI</class>
+    <string>GUI</string>
+   </object>
+  </void>
+ </object>
+</java>
