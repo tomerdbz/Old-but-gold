@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
-import model.MyModel;
+import model.ClientModel;
 
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -30,11 +30,11 @@ public class Run {
 				Display display=new Display();
 				Shell shell=new Shell(display);
 				guiProp.writeProperties(shell);
-				MyModel m;
+				ClientModel m;
 				ClientProperties prop;
 				if((prop=readProperties())!=null)
 				{
-					m=new MyModel(prop);
+					m=new ClientModel(prop);
 					
 					switch(prop.getUi())
 					{
