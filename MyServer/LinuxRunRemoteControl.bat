@@ -1,0 +1,1 @@
+java -classpath "RemoteControl.jar;..\SWT\swt.linux32.64.jar;.\lib\jaco-mp3-player-0.9.3.jar;.\lib\Client-Server-Commons.jar;.\lib\commons-beanutils-1.9.2.jar;.\lib\commons-logging-1.2.jar" boot.RemoteControlRun
