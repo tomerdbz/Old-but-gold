@@ -123,6 +123,9 @@ public abstract class CommonBoard extends Composite implements Board {
 	@Override
 	public abstract void  applyInputDirection(Direction direction);
 	
+	/**	This method adds to each one of the CommonTiles in the CommonBoard a Mouse Listener for dragging.
+	 * 
+	 */
 	public void addMouseListenerToComposite() {
 		MouseListener ma=new MouseListener(){
 

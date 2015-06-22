@@ -369,15 +369,15 @@ public class MazeDisplay extends CommonBoard {
 				if(!isDisposed()){
 				getDisplay().syncExec(new Runnable() {
 					@Override
-					public void run() { //this is the timer task allowing us to redraw the goal target gif
+					public void run() { //this is the timer task allowing us to redraw the goal target gif and sonic's gif
 						if(character!=null && !isDisposed() && m!=null){
 							if(m.getRowGoal()<board.length && m.getColGoal()<board[0].length){
-						 character.setCharacterImageIndex((character.getCharacterImageIndex() + 1) % character.getCharacterImagesArray().length); //next frame in gifs
-						 frameIndex =(frameIndex+1) % images.length; //next frame in gifs
-						 (board[rowGoal][colGoal]).setGoal(new Image(getDisplay(),images[frameIndex]));
-						 board[character.currentCellX][character.currentCellY].redraw(); //redraw cell in which character now stays
-						board[rowGoal][colGoal].redraw();
-						//redraw the goal cell
+								 character.setCharacterImageIndex((character.getCharacterImageIndex() + 1) % character.getCharacterImagesArray().length); //next frame in gifs
+								 frameIndex =(frameIndex+1) % images.length; //next frame in gifs
+								 (board[rowGoal][colGoal]).setGoal(new Image(getDisplay(),images[frameIndex]));
+								 board[character.currentCellX][character.currentCellY].redraw(); //redraw cell in which character now stays
+								 board[rowGoal][colGoal].redraw();
+								 //redraw the goal cell
 							}
 						}
 						
